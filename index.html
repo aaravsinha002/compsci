@@ -3,142 +3,292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Why a Career in Computer Science is the Best Choice</title>
+    <title>Why Computer Science? | Future-Ready Career</title>
     <style>
+        :root {
+            --primary: #007bff;
+            --secondary: #28a745;
+            --dark: #2c3e50;
+            --light: #f8f9fa;
+        }
+
         body {
-            font-family: sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             line-height: 1.6;
-            margin: 20px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background-color: #007bff;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        header h1 {
             margin: 0;
-            font-size: 2.5em;
+            background: linear-gradient(135deg, #f4f4f4 0%, #e0e0e0 100%);
+            color: var(--dark);
+            transition: background 0.3s ease;
         }
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        .dark-mode {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: var(--light);
         }
-        section {
-            margin-bottom: 30px;
-        }
-        section h2 {
-            color: #007bff;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        ul li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
-        ul li:before {
-            content: "✓";
-            color: green;
-            position: absolute;
-            left: 0;
-        }
-        .cta {
-            text-align: center;
-            margin-top: 40px;
-        }
-        .cta a {
-            display: inline-block;
-            background-color: #28a745;
+
+        header {
+            background: linear-gradient(rgba(0,123,255,0.9), rgba(0,86,179,0.9));
             color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        .cta a:hover {
-            background-color: #218838;
-        }
-        footer {
+            padding: 4rem 0;
             text-align: center;
-            margin-top: 50px;
-            color: #777;
+            position: relative;
+            overflow: hidden;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-content {
+            max-width: 800px;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.5s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .floating-icon {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.1;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .section-card h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .salary-calculator {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .calculator-input {
+            margin: 1rem 0;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        input[type="range"] {
+            flex-grow: 1;
+        }
+
+        #salaryResult {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        .job-roles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .role-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .role-card:hover {
+            transform: scale(1.05);
+        }
+
+        .dark-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: var(--dark);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .dark-toggle:hover {
+            transform: rotate(10deg);
+        }
+
+        .scroll-animation {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 1s ease;
+        }
+
+        .scroll-animation.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
     </style>
 </head>
 <body>
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌓 Toggle Dark Mode</button>
+    
     <header>
-        <h1>Unlock Your Future: Why Computer Science Reigns Supreme</h1>
+        <div class="header-content">
+            <h1 class="pulse">🚀 Launch Your Future in Computer Science</h1>
+            <p>Shape the digital world of tomorrow</p>
+        </div>
+        <div class="floating-icon" style="top:20%; left:10%">💻</div>
+        <div class="floating-icon" style="top:30%; right:15%">🌐</div>
+        <div class="floating-icon" style="bottom:20%; left:45%">🤖</div>
     </header>
+
     <div class="container">
-        <section>
-            <h2>The World Runs on Code</h2>
-            <p>Think about your daily life. From the smartphone in your pocket to the websites you browse, from the cars on the road to the medical equipment in hospitals – computer science is the invisible force powering it all. A career in CS puts you at the forefront of innovation, allowing you to shape the technology of tomorrow.</p>
-            <ul>
-                <li>Be a creator, not just a consumer of technology.</li>
-                <li>Contribute to solutions that impact millions of lives.</li>
-                <li>Work on cutting-edge advancements like AI, machine learning, and cybersecurity.</li>
-            </ul>
-        </section>
+        <div class="salary-calculator scroll-animation">
+            <h2>💰 Salary Calculator</h2>
+            <div class="calculator-input">
+                <label>Years of Experience:</label>
+                <input type="range" id="experience" min="0" max="20" value="0">
+                <span id="expValue">0</span>
+            </div>
+            <div id="salaryResult">Estimated Salary: $85,000</div>
+        </div>
 
-        <section>
-            <h2>Limitless Opportunities and High Demand</h2>
-            <p>The demand for skilled computer scientists is soaring across virtually every industry. This translates to a wealth of job opportunities, excellent job security, and the power to choose a career path that truly excites you.</p>
-            <ul>
-                <li>High job placement rates for CS graduates.</li>
-                <li>Diverse roles in software development, data science, web development, and more.</li>
-                <li>Opportunities in startups, established tech giants, and traditional industries.</li>
-            </ul>
-        </section>
+        <div class="card-grid">
+            <div class="section-card scroll-animation" onclick="toggleCard(this)">
+                <h2>💡 Innovation Frontier</h2>
+                <p>Be at the forefront of technological breakthroughs...</p>
+                <div class="hidden-content" style="display: none;">
+                    <ul>
+                        <li>Develop AI solutions</li>
+                        <li>Create immersive VR experiences</li>
+                        <li>Build blockchain applications</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Add more cards following the same pattern -->
+        </div>
 
-        <section>
-            <h2>Intellectual Stimulation and Continuous Learning</h2>
-            <p>If you enjoy problem-solving, logical thinking, and the thrill of tackling complex challenges, computer science is your ideal playground. The field is constantly evolving, ensuring that you'll always be learning and growing, keeping your mind sharp and engaged.</p>
-            <ul>
-                <li>Engage in challenging and rewarding intellectual puzzles.</li>
-                <li>Stay at the forefront of technological advancements.</li>
-                <li>Develop strong analytical and problem-solving skills applicable to all areas of life.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Competitive Salaries and Excellent Benefits</h2>
-            <p>The high demand for computer science professionals is reflected in the attractive compensation packages offered. A career in CS can provide financial security and a comfortable lifestyle, allowing you to pursue your passions both inside and outside of work.</p>
-            <ul>
-                <li>Earn competitive salaries right from the start.</li>
-                <li>Enjoy comprehensive benefits packages.</li>
-                <li>Potential for significant salary growth as you gain experience.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>A Flexible and Collaborative Environment</h2>
-            <p>Many computer science roles offer flexible work arrangements and opportunities for collaboration. You'll often work in dynamic teams, sharing ideas and building innovative solutions together.</p>
-            <ul>
-                <li>Potential for remote work and flexible hours.</li>
-                <li>Collaborate with talented individuals from diverse backgrounds.</li>
-                <li>Contribute to a supportive and innovative work culture.</li>
-            </ul>
-        </section>
-
-        <div class="cta">
-            <a href="#">Explore Computer Science Programs</a>
+        <div class="scroll-animation">
+            <h2>🚀 Trending Career Paths</h2>
+            <div class="job-roles">
+                <div class="role-card">
+                    <h3>AI Engineer</h3>
+                    <p>Design intelligent systems</p>
+                </div>
+                <!-- Add more role cards -->
+            </div>
         </div>
     </div>
-    <footer>
-        <p>&copy; 2025 Why Computer Science?</p>
+
+    <footer class="scroll-animation">
+        <p>© 2024 CS Careers | Shape Your Future</p>
     </footer>
+
+    <script>
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        // Salary Calculator
+        const experienceSlider = document.getElementById('experience');
+        const expValue = document.getElementById('expValue');
+        const salaryResult = document.getElementById('salaryResult');
+
+        experienceSlider.addEventListener('input', (e) => {
+            const years = parseInt(e.target.value);
+            expValue.textContent = years;
+            const salary = 85000 + (years * 5000);
+            salaryResult.textContent = `Estimated Salary: $${salary.toLocaleString()}`;
+        });
+
+        // Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.scroll-animation').forEach(el => observer.observe(el));
+
+        // Expandable Cards
+        function toggleCard(card) {
+            const content = card.querySelector('.hidden-content');
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+            card.classList.toggle('expanded');
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
