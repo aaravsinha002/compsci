@@ -15,7 +15,7 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            line-height: 1.6;
+            line-height: 1.8;
             margin: 0;
             background: var(--light);
             color: var(--dark);
@@ -33,7 +33,7 @@
                         url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4');
             background-size: cover;
             color: white;
-            padding: 4rem;
+            padding: 5rem 2rem;
             text-align: center;
             border-bottom: 5px solid var(--secondary);
         }
@@ -47,37 +47,45 @@
 
         .career-image {
             width: 100%;
-            height: 200px;
+            height: 220px;
             border-radius: 15px;
             object-fit: cover;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .career-image:hover {
+            transform: scale(1.03);
         }
 
         .rubric-section {
             background: white;
-            margin: 2rem auto;
+            margin: 3rem auto;
             padding: 3rem;
             border-radius: 15px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
         }
 
         .day-in-life {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            margin: 2rem 0;
+            margin: 3rem 0;
         }
 
         .timeline-item {
             padding: 2rem;
             border: 2px solid var(--primary);
             border-radius: 15px;
+            background: rgba(41,98,255,0.05);
         }
 
         .requirements-table {
             width: 100%;
             border-collapse: collapse;
             margin: 2rem 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .requirements-table td, .requirements-table th {
@@ -85,18 +93,29 @@
             border: 1px solid #ddd;
         }
 
+        .requirements-table th {
+            background-color: var(--primary);
+            color: white;
+        }
+
         .benefits-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            margin: 2rem 0;
+            margin: 3rem 0;
         }
 
         .benefit-card {
             padding: 2rem;
             background: #f8f9fa;
             border-radius: 15px;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            border-bottom: 5px solid transparent;
+        }
+
+        .benefit-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
         .city-list {
@@ -104,69 +123,113 @@
             padding: 0;
             display: inline-block;
             text-align: left;
+            font-size: 1.1rem;
+        }
+
+        .city-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .city-list li:before {
+            content: "📍";
+            position: absolute;
+            left: 0;
+        }
+
+        .specializations {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .specialization-tag {
+            background: var(--secondary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
         }
 
         footer {
             background: var(--dark);
             color: white;
-            padding: 2rem;
+            padding: 3rem;
             margin-top: 4rem;
+        }
+
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
         }
     </style>
 </head>
 <body>
     <header>
         <div class="content-wrapper">
-            <h1>Computer Science Career Path</h1>
-            <p>Presented by: [Your Name]</p>
+            <h1 style="font-size: 2.8rem;">Computer Science Career Path</h1>
+            <p style="font-size: 1.3rem;">The Future of Technology Starts Here</p>
+            <p>Presented by: [Your Name] | OTHS KAP Biology Project</p>
         </div>
     </header>
 
     <div class="content-wrapper">
         <!-- Career Overview Section -->
         <div class="rubric-section">
-            <h2>🚀 Career Overview</h2>
+            <h2><i class="fas fa-rocket icon"></i><br>Career Overview</h2>
             <div class="image-grid">
                 <img src="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a" 
-                     alt="Coding" 
+                     alt="Developer coding" 
                      class="career-image">
                 <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952" 
-                     alt="Teamwork" 
+                     alt="Team collaboration" 
                      class="career-image">
                 <img src="https://images.unsplash.com/photo-1535378917042-10a22c95931a" 
-                     alt="AI Technology" 
+                     alt="AI technology" 
                      class="career-image">
             </div>
 
-            <h3>Purpose of Computer Science</h3>
-            <p>Develop innovative software solutions that power modern technology, from mobile apps to artificial intelligence systems.</p>
+            <h3>The Purpose of Computer Science</h3>
+            <p style="max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
+                Computer Science professionals are the architects of our digital world. They design, develop, and maintain the software systems that power everything from smartphones to space exploration. In today's technology-driven society, computer scientists solve complex problems, create innovative solutions, and push the boundaries of what's possible with computing technology.
+            </p>
 
             <div class="day-in-life">
                 <div class="timeline-item">
-                    <i class="fas fa-laptop-code fa-2x"></i>
-                    <h4>Daily Duties</h4>
+                    <i class="fas fa-laptop-code fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h4>Core Development Work</h4>
                     <ul class="city-list">
-                        <li>Software development</li>
-                        <li>System architecture design</li>
-                        <li>Problem solving & debugging</li>
+                        <li><strong>Writing and testing code</strong> for new applications and features</li>
+                        <li><strong>Debugging and optimizing</strong> existing software systems</li>
+                        <li><strong>Implementing algorithms</strong> to solve computational problems</li>
+                        <li><strong>Collaborating with designers</strong> on user interfaces</li>
+                        <li><strong>Documenting code</strong> for future maintenance</li>
                     </ul>
                 </div>
                 <div class="timeline-item">
-                    <i class="fas fa-users fa-2x"></i>
-                    <h4>Collaboration</h4>
+                    <i class="fas fa-users fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h4>Team Collaboration</h4>
                     <ul class="city-list">
-                        <li>Team meetings</li>
-                        <li>Code reviews</li>
-                        <li>Project planning</li>
+                        <li><strong>Daily stand-up meetings</strong> to coordinate with team</li>
+                        <li><strong>Code reviews</strong> to maintain quality standards</li>
+                        <li><strong>Project planning sessions</strong> using Agile methodologies</li>
+                        <li><strong>Client meetings</strong> to understand requirements</li>
+                        <li><strong>Mentoring junior developers</strong> in the team</li>
                     </ul>
                 </div>
                 <div class="timeline-item">
-                    <i class="fas fa-flask fa-2x"></i>
-                    <h4>Research</h4>
+                    <i class="fas fa-flask fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                    <h4>Research & Innovation</h4>
                     <ul class="city-list">
-                        <li>New technology evaluation</li>
-                        <li>Prototype development</li>
-                        <li>Continuous learning</li>
+                        <li><strong>Exploring new frameworks</strong> and technologies</li>
+                        <li><strong>Prototyping innovative solutions</strong> to technical challenges</li>
+                        <li><strong>Attending tech conferences</strong> and workshops</li>
+                        <li><strong>Reading research papers</strong> to stay current</li>
+                        <li><strong>Experimenting with emerging tech</strong> like quantum computing</li>
                     </ul>
                 </div>
             </div>
@@ -174,77 +237,201 @@
 
         <!-- Work Environment Section -->
         <div class="rubric-section">
-            <h2>🏢 Work Environment</h2>
-            <p>Typical work settings include tech offices, remote setups, and research labs</p>
+            <h2><i class="fas fa-building icon"></i><br>Work Environment</h2>
+            <p style="max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
+                Computer Science professionals enjoy diverse work environments that cater to different preferences and specialties. The field offers remarkable flexibility in where and how you work.
+            </p>
             
-            <h3>Top 3 Tech Hubs</h3>
-            <ul class="city-list">
-                <li>1. San Francisco, CA</li>
-                <li>2. Seattle, WA</li>
-                <li>3. Austin, TX</li>
-            </ul>
+            <div class="image-grid">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c" 
+                     alt="Tech office" 
+                     class="career-image">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" 
+                     alt="Remote work" 
+                     class="career-image">
+                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095" 
+                     alt="Research lab" 
+                     class="career-image">
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; text-align: left;">
+                <div>
+                    <h3>Common Work Settings</h3>
+                    <ul class="city-list">
+                        <li><strong>Tech company offices</strong> (Google, Apple, startups)</li>
+                        <li><strong>Remote work environments</strong> (home offices, co-working spaces)</li>
+                        <li><strong>University research labs</strong> (AI, robotics, quantum computing)</li>
+                        <li><strong>Government facilities</strong> (cybersecurity, defense systems)</li>
+                        <li><strong>Hybrid arrangements</strong> (mix of office and remote work)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Top 5 Tech Hubs in the US</h3>
+                    <ul class="city-list">
+                        <li><strong>1. San Francisco Bay Area, CA</strong> - Silicon Valley, tech startup capital</li>
+                        <li><strong>2. Seattle, WA</strong> - Home to Microsoft and Amazon</li>
+                        <li><strong>3. New York City, NY</strong> - Fintech and media tech hub</li>
+                        <li><strong>4. Austin, TX</strong> - Growing tech scene with lower costs</li>
+                        <li><strong>5. Boston, MA</strong> - Strong in biotech and academia</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <!-- Job Requirements Section -->
         <div class="rubric-section">
-            <h2>🎓 Education Requirements</h2>
+            <h2><i class="fas fa-graduation-cap icon"></i><br>Education & Requirements</h2>
+            <p style="max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
+                While there are multiple pathways into computer science careers, most positions require formal education and continuous skill development to stay competitive in this rapidly evolving field.
+            </p>
+
             <table class="requirements-table">
                 <tr>
                     <th>Requirement</th>
                     <th>Details</th>
                     <th>Duration</th>
+                    <th>Importance</th>
                 </tr>
                 <tr>
-                    <td>Degree</td>
-                    <td>Bachelor's in Computer Science</td>
-                    <td>4 years</td>
+                    <td><strong>Degree Programs</strong></td>
+                    <td>
+                        <ul style="text-align: left; padding-left: 1.5rem; margin: 0;">
+                            <li>Bachelor's in Computer Science (BS)</li>
+                            <li>Computer Engineering</li>
+                            <li>Software Engineering</li>
+                            <li>Information Technology</li>
+                        </ul>
+                    </td>
+                    <td>4 years (typical)</td>
+                    <td>⭐⭐⭐⭐⭐</td>
                 </tr>
                 <tr>
-                    <td>Certifications</td>
-                    <td>AWS, Cisco, Microsoft</td>
-                    <td>3-6 months</td>
+                    <td><strong>Certifications</strong></td>
+                    <td>
+                        <ul style="text-align: left; padding-left: 1.5rem; margin: 0;">
+                            <li>AWS Certified Developer</li>
+                            <li>Google Professional Certificates</li>
+                            <li>Microsoft Certified: Azure</li>
+                            <li>Certified Ethical Hacker</li>
+                        </ul>
+                    </td>
+                    <td>3-12 months</td>
+                    <td>⭐⭐⭐⭐</td>
                 </tr>
                 <tr>
-                    <td>Specialization</td>
-                    <td>AI, Cybersecurity, Data Science</td>
-                    <td>1-2 years</td>
+                    <td><strong>Specializations</strong></td>
+                    <td>
+                        <div class="specializations">
+                            <span class="specialization-tag">Artificial Intelligence</span>
+                            <span class="specialization-tag">Machine Learning</span>
+                            <span class="specialization-tag">Cybersecurity</span>
+                            <span class="specialization-tag">Data Science</span>
+                            <span class="specialization-tag">Cloud Computing</span>
+                            <span class="specialization-tag">Game Development</span>
+                        </div>
+                    </td>
+                    <td>1-3 years</td>
+                    <td>⭐⭐⭐</td>
+                </tr>
+                <tr>
+                    <td><strong>Skills Development</strong></td>
+                    <td>
+                        <ul style="text-align: left; padding-left: 1.5rem; margin: 0;">
+                            <li>Programming languages (Python, Java, C++)</li>
+                            <li>Data structures & algorithms</li>
+                            <li>Software development methodologies</li>
+                            <li>Version control (Git)</li>
+                        </ul>
+                    </td>
+                    <td>Ongoing</td>
+                    <td>⭐⭐⭐⭐⭐</td>
                 </tr>
             </table>
         </div>
 
         <!-- Benefits Section -->
         <div class="rubric-section">
-            <h2>🌟 Career Benefits</h2>
+            <h2><i class="fas fa-star icon"></i><br>Career Benefits</h2>
+            <p style="max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
+                Beyond competitive salaries, computer science careers offer numerous advantages that make them highly rewarding both professionally and personally.
+            </p>
+
             <div class="benefits-grid">
                 <div class="benefit-card">
-                    <i class="fas fa-brain fa-2x"></i>
-                    <h3>Continuous Learning</h3>
-                    <p>Always work with cutting-edge technologies</p>
+                    <i class="fas fa-brain fa-3x" style="color: var(--secondary); margin-bottom: 1rem;"></i>
+                    <h3>Intellectual Challenge</h3>
+                    <p style="text-align: left;">
+                        Computer science provides continuous mental stimulation through complex problem-solving opportunities. You'll:
+                        <ul style="text-align: left;">
+                            <li>Tackle unique technical challenges daily</li>
+                            <li>Work on cutting-edge innovations</li>
+                            <li>Develop critical thinking skills</li>
+                            <li>Engage in creative solution design</li>
+                        </ul>
+                    </p>
                 </div>
                 <div class="benefit-card">
-                    <i class="fas fa-globe fa-2x"></i>
+                    <i class="fas fa-globe fa-3x" style="color: var(--secondary); margin-bottom: 1rem;"></i>
                     <h3>Global Impact</h3>
-                    <p>Create solutions used worldwide</p>
+                    <p style="text-align: left;">
+                        Your work can reach and improve millions of lives:
+                        <ul style="text-align: left;">
+                            <li>Develop software used worldwide</li>
+                            <li>Contribute to open source projects</li>
+                            <li>Solve humanitarian problems</li>
+                            <li>Advance scientific research</li>
+                        </ul>
+                    </p>
                 </div>
                 <div class="benefit-card">
-                    <i class="fas fa-balance-scale fa-2x"></i>
-                    <h3>Work Flexibility</h3>
-                    <p>Remote work options available</p>
+                    <i class="fas fa-balance-scale fa-3x" style="color: var(--secondary); margin-bottom: 1rem;"></i>
+                    <h3>Work-Life Balance</h3>
+                    <p style="text-align: left;">
+                        Tech companies often offer excellent benefits:
+                        <ul style="text-align: left;">
+                            <li>Flexible work arrangements</li>
+                            <li>Remote work opportunities</li>
+                            <li>Generous vacation policies</li>
+                            <li>Onsite amenities at offices</li>
+                        </ul>
+                    </p>
                 </div>
             </div>
         </div>
 
         <!-- Salary Section -->
         <div class="rubric-section">
-            <h2>💰 Salary Information</h2>
-            <div style="font-size: 1.5rem; color: var(--secondary);">
-                Average Annual Salary: $85,000 - $130,000
+            <h2><i class="fas fa-money-bill-wave icon"></i><br>Salary Information</h2>
+            <div style="background: rgba(0,200,83,0.1); padding: 2rem; border-radius: 10px; max-width: 800px; margin: 0 auto;">
+                <h3>Average Annual Salaries in Computer Science</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem 0;">
+                    <div>
+                        <h4>Entry-Level</h4>
+                        <p style="font-size: 1.5rem; color: var(--secondary);">$65,000 - $90,000</p>
+                        <p>0-2 years experience</p>
+                    </div>
+                    <div>
+                        <h4>Mid-Career</h4>
+                        <p style="font-size: 1.5rem; color: var(--secondary);">$90,000 - $130,000</p>
+                        <p>3-7 years experience</p>
+                    </div>
+                    <div>
+                        <h4>Senior-Level</h4>
+                        <p style="font-size: 1.5rem; color: var(--secondary);">$130,000 - $200,000+</p>
+                        <p>8+ years experience</p>
+                    </div>
+                </div>
+                <p style="font-style: italic;">
+                    Note: Salaries vary significantly by location, company, and specialization. Tech hubs like Silicon Valley typically offer 20-30% higher salaries to account for cost of living.
+                </p>
             </div>
         </div>
     </div>
 
     <footer>
         <div class="content-wrapper">
+            <h3>Ready to Start Your CS Journey?</h3>
+            <p>Computer Science offers endless opportunities for growth, innovation, and impact</p>
             <p>© 2024 CS Career Guide | OTHS KAP Biology Project</p>
         </div>
     </footer>
