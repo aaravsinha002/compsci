@@ -449,3 +449,224 @@
         <div class="rubric-section">
             <h2><i class="fas fa-graduation-cap icon"></i><br>Education & Requirements</h2>
             <table class="requirements-table">
+                <tr onclick="showModal('Many successful developers are self-taught, but degrees remain important for many positions.')">
+                    <td><strong>Degree Programs</strong></td>
+                    <td>Bachelor's in Computer Science, Computer Engineering</td>
+                    <td>4 years</td>
+                </tr>
+                <tr onclick="showModal('Certifications can help specialize your skills and increase earning potential.')">
+                    <td><strong>Certifications</strong></td>
+                    <td>AWS, Cisco, Microsoft, Google</td>
+                    <td>3-12 months</td>
+                </tr>
+                <tr>
+                    <td><strong>Licenses</strong></td>
+                    <td>Generally not a primary requirement for most Computer Science roles. Specific highly regulated industries might have exceptions.</td>
+                    <td>N/A</td>
+                </tr>
+                <tr onclick="showModal('Specializing can make you more valuable but may limit job flexibility.')">
+                    <td><strong>Specializations</strong></td>
+                    <td>
+                        <div class="specializations">
+                            <span class="specialization-tag" onclick="showModal('AI specialists develop machine learning models and neural networks.')">AI</span>
+                            <span class="specialization-tag" onclick="showModal('Cybersecurity experts protect systems from hackers and malware.')">Cybersecurity</span>
+                            <span class="specialization-tag" onclick="showModal('Data scientists analyze large datasets to find patterns.')">Data Science</span>
+                            <span class="specialization-tag" onclick="showModal('Cloud engineers work with distributed systems and services.')">Cloud</span>
+                        </div>
+                    </td>
+                    <td>1-3 years</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="rubric-section">
+            <h2><i class="fas fa-calculator icon"></i><br>Salary Calculator</h2>
+            <div>
+                <label for="experience">Years of Experience:</label>
+                <input type="range" id="experience" class="salary-slider" min="0" max="20" value="0">
+                <span id="exp-value">0</span> years
+            </div>
+            <div>
+                <label for="specialization">Specialization:</label>
+                <select id="specialization" style="padding: 0.5rem; border-radius: 5px; margin: 1rem;">
+                    <option value="1">General Software</option>
+                    <option value="1.2">AI/Machine Learning</option>
+                    <option value="1.15">Cybersecurity</option>
+                    <option value="1.1">Data Science</option>
+                    <option value="1.25">Quantum Computing</option>
+                </select>
+            </div>
+            <div class="salary-result" id="salary-result">Estimated Salary: $85,000</div>
+        </div>
+
+        <div class="rubric-section">
+            <h2><i class="fas fa-star icon"></i><br>Career Benefits</h2>
+            <p class="section-intro">Computer Science offers unparalleled professional advantages that extend far beyond competitive salaries. Here's why it's one of the most rewarding career paths:</p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-user-clock fa-3x benefit-icon"></i>
+                    <h3>Work-Life Flexibility</h3>
+                    <div class="benefit-details">
+                        <ul>
+                            <li><strong>Remote Work Options:</strong> 72% of tech companies offer full or partial remote work</li>
+                            <li><strong>Flexible Hours:</strong> Core hours typically between 10am-3pm with flexible start/end times</li>
+                            <li><strong>Unlimited PTO:</strong> Offered by 42% of Silicon Valley companies</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-shield-alt fa-3x benefit-icon"></i>
+                    <h3>Job Security & Demand</h3>
+                    <div class="benefit-details">
+                        <ul>
+                            <li><strong>Growing Field:</strong> 22% projected growth (2020-2030) - much faster than average</li>
+                            <li><strong>Universal Need:</strong> Every industry needs CS professionals</li>
+                            <li><strong>Future-Proof:</strong> Essential for emerging technologies</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-rocket fa-3x benefit-icon"></i>
+                    <h3>Growth Potential</h3>
+                    <div class="benefit-details">
+                        <ul>
+                            <li><strong>Career Progression:</strong> Clear path from Junior Dev → Senior → Tech Lead → CTO</li>
+                            <li><strong>Continuous Learning:</strong> $5,000+ average annual training budget</li>
+                            <li><strong>Entrepreneurial Opportunities:</strong> 60% of startups are tech-based</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="secondary-benefits">
+                <h4>More Advantages:</h4>
+                <div class="benefit-chips">
+                    <div class="chip">⚡ Cutting-edge Technology Access</div>
+                    <div class="chip">🤝 Collaborative Work Culture</div>
+                    <div class="chip">📈 Stock Options & Bonuses</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="info-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="modal-text"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="content-wrapper">
+            <h3>Ready to Start Your CS Journey?</h3>
+            <p>Explore computer science programs at your school or online platforms like Coursera and edX</p>
+            <p>© 2024 CS Career Guide | Presented by Aarav Sinha</p>
+        </div>
+    </footer>
+
+    <script>
+        // Create floating code animation
+        function createCodeAnimation() {
+            const container = document.getElementById('code-animation');
+            const codeSnippets = [
+                "function helloWorld() {\n  console.log('Hello CS!');\n}",
+                "class Developer {\n  constructor(name) {\n    this.name = name;\n  }\n}",
+                "const machineLearning = () => {\n  // Train AI model here\n};",
+                "#include <iostream>\nusing namespace std;\n\nint main() {\n  return 0;\n}"
+            ];
+
+            for (let i = 0; i < 15; i++) {
+                const codeElement = document.createElement('div');
+                codeElement.className = 'floating-code';
+                codeElement.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+                codeElement.style.left = Math.random() * 100 + 'vw';
+                codeElement.style.animationDuration = (10 + Math.random() * 20) + 's';
+                codeElement.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(codeElement);
+            }
+        }
+
+        // Modal functions
+        function showModal(text) {
+            document.getElementById('modal-text').innerHTML = text;
+            document.getElementById('info-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('info-modal').style.display = 'none';
+        }
+
+        // Quiz function
+        function checkAnswer(element, type) {
+            const feedback = document.getElementById('quiz-feedback');
+            if (type === 'correct') {
+                element.style.background = 'var(--secondary)';
+                element.style.color = 'white';
+                feedback.innerHTML = '✅ Correct! Python is the most popular language for AI development.';
+            } else {
+                element.style.background = '#ff4444';
+                element.style.color = 'white';
+                feedback.innerHTML = '❌ Try again! Python is the most popular for AI.';
+            }
+        }
+
+        // Salary calculator
+        function updateSalary() {
+            const years = parseInt(document.getElementById('experience').value);
+            const specialization = parseFloat(document.getElementById('specialization').value);
+            const baseSalary = 85000;
+            const experienceBonus = years * 3000;
+            const total = Math.floor((baseSalary + experienceBonus) * specialization);
+
+            document.getElementById('exp-value').textContent = years;
+            document.getElementById('salary-result').textContent = `Estimated Salary: $${total.toLocaleString()}`;
+        }
+
+        // Day in the Life Slider
+        document.addEventListener('DOMContentLoaded', function() {
+            createCodeAnimation();
+            document.getElementById('experience').addEventListener('input', updateSalary);
+            document.getElementById('specialization').addEventListener('change', updateSalary);
+            document.getElementById('info-modal').addEventListener('click', function(e) {
+                if (e.target === this) closeModal();
+            });
+
+            const daySlider = document.getElementById('day-slider');
+            const dayDescription = document.getElementById('day-description');
+            const dayStages = [
+                {
+                    time: "Morning (9:00 AM)",
+                    description: "Checking emails and attending a team stand-up meeting to discuss the day's tasks and progress.",
+                    details: ["Reviewing task list", "Addressing urgent messages"]
+                },
+                {
+                    time: "Mid-day (11:00 AM - 2:00 PM)",
+                    description: "Focusing on core development work, such as coding new features or debugging existing ones.",
+                    details: ["Writing code for a new module", "Collaborating with designers on UI", "Debugging a reported issue"]
+                },
+                {
+                    time: "Afternoon (3:00 PM - 5:00 PM)",
+                    description: "Engaging in collaborative activities and continuous learning.",
+                    details: ["Participating in a code review", "Attending a project planning meeting", "Researching a new technology"]
+                }
+            ];
+
+            if (daySlider && dayDescription) {
+                daySlider.addEventListener('input', function() {
+                    const index = parseInt(this.value);
+                    const currentStage = dayStages[index];
+                    let detailsHTML = '<ul>';
+                    currentStage.details.forEach(detail => {
+                        detailsHTML += `<li>${detail}</li>`;
+                    });
+                    detailsHTML += '</ul>';
+                    dayDescription.innerHTML = `<p><strong>${currentStage.time}:</strong> ${currentStage.description}</p>${detailsHTML}`;
+                });
+            }
+        });
+    </script>
+</body>
+</html>
