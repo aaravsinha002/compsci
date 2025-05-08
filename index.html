@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computer Science Career Explorer</title>
+    <title>Computer Science Career - OTHS KAP Project</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -14,7 +14,7 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
             margin: 0;
             background: var(--light);
@@ -30,29 +30,17 @@
 
         header {
             background: linear-gradient(rgba(41,98,255,0.9), rgba(13,71,161,0.9)),
-                        url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+                        url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4');
             background-size: cover;
             color: white;
-            padding: 4rem 2rem;
+            padding: 4rem;
             text-align: center;
             border-bottom: 5px solid var(--secondary);
         }
 
-        .career-header {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin: 2rem auto;
-            padding: 2rem;
-            background: rgba(255,255,255,0.9);
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            max-width: 800px;
-        }
-
         .image-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin: 3rem 0;
         }
@@ -63,27 +51,6 @@
             border-radius: 15px;
             object-fit: cover;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .career-image:hover {
-            transform: scale(1.05);
-        }
-
-        .icon-section {
-            font-size: 3rem;
-            margin: 2rem 0;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .icon-item {
-            transition: transform 0.3s ease;
-        }
-
-        .icon-item:hover {
-            transform: translateY(-10px);
         }
 
         .rubric-section {
@@ -92,12 +59,11 @@
             padding: 3rem;
             border-radius: 15px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            max-width: 1000px;
         }
 
         .day-in-life {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin: 2rem 0;
         }
@@ -106,22 +72,22 @@
             padding: 2rem;
             border: 2px solid var(--primary);
             border-radius: 15px;
-            position: relative;
         }
 
-        .salary-display {
-            font-size: 2rem;
-            color: var(--secondary);
+        .requirements-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        .requirements-table td, .requirements-table th {
             padding: 1.5rem;
-            border: 3px solid var(--secondary);
-            border-radius: 10px;
-            margin: 2rem auto;
-            max-width: 500px;
+            border: 1px solid #ddd;
         }
 
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin: 2rem 0;
         }
@@ -130,13 +96,7 @@
             padding: 2rem;
             background: #f8f9fa;
             border-radius: 15px;
-            transition: all 0.3s ease;
-            border-bottom: 5px solid transparent;
-        }
-
-        .benefit-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
 
         .city-list {
@@ -144,20 +104,6 @@
             padding: 0;
             display: inline-block;
             text-align: left;
-        }
-
-        .requirements-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem auto;
-            background: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .requirements-table td, .requirements-table th {
-            padding: 1.5rem;
-            border: 1px solid #ddd;
-            text-align: center;
         }
 
         footer {
@@ -171,73 +117,135 @@
 <body>
     <header>
         <div class="content-wrapper">
-            <h1>💻 Computer Science Career Path</h1>
-            <p class="subtitle">Shaping the Digital Future</p>
+            <h1>Computer Science Career Path</h1>
+            <p>Presented by: [Your Name]</p>
         </div>
     </header>
 
-    <div class="image-grid content-wrapper">
-        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
-             alt="Coding workspace" 
-             class="career-image">
-        <img src="https://images.unsplash.com/photo-1534665482403-a909d0d97c67?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
-             alt="Tech team collaboration" 
-             class="career-image">
-        <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?ixlib=rb-1.2.1&auto=format&fit=crop&w=1953&q=80" 
-             alt="Artificial Intelligence" 
-             class="career-image">
-    </div>
+    <div class="content-wrapper">
+        <!-- Career Overview Section -->
+        <div class="rubric-section">
+            <h2>🚀 Career Overview</h2>
+            <div class="image-grid">
+                <img src="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a" 
+                     alt="Coding" 
+                     class="career-image">
+                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952" 
+                     alt="Teamwork" 
+                     class="career-image">
+                <img src="https://images.unsplash.com/photo-1535378917042-10a22c95931a" 
+                     alt="AI Technology" 
+                     class="career-image">
+            </div>
 
-    <div class="career-header content-wrapper">
-        <div class="salary-display">
-            <i class="fas fa-coins"></i>
-            Average Salary: $85k - $130k+
-        </div>
-    </div>
+            <h3>Purpose of Computer Science</h3>
+            <p>Develop innovative software solutions that power modern technology, from mobile apps to artificial intelligence systems.</p>
 
-    <div class="icon-section">
-        <div class="icon-item">
-            <i class="fas fa-laptop-code"></i>
-        </div>
-        <div class="icon-item">
-            <i class="fas fa-robot"></i>
-        </div>
-        <div class="icon-item">
-            <i class="fas fa-shield-alt"></i>
-        </div>
-    </div>
-
-    <!-- Career Overview Section -->
-    <div class="rubric-section">
-        <h2>🚀 Career Overview</h2>
-        <div class="content-wrapper">
-            <p class="lead-text">Computer Science professionals create the digital infrastructure that powers our modern world, from mobile apps to artificial intelligence systems.</p>
-            
             <div class="day-in-life">
                 <div class="timeline-item">
-                    <i class="fas fa-code icon-sm"></i>
-                    <h3>Software Development</h3>
-                    <p>Designing and coding innovative solutions</p>
+                    <i class="fas fa-laptop-code fa-2x"></i>
+                    <h4>Daily Duties</h4>
+                    <ul class="city-list">
+                        <li>Software development</li>
+                        <li>System architecture design</li>
+                        <li>Problem solving & debugging</li>
+                    </ul>
                 </div>
                 <div class="timeline-item">
-                    <i class="fas fa-users-cog icon-sm"></i>
-                    <h3>Team Collaboration</h3>
-                    <p>Working with cross-functional teams</p>
+                    <i class="fas fa-users fa-2x"></i>
+                    <h4>Collaboration</h4>
+                    <ul class="city-list">
+                        <li>Team meetings</li>
+                        <li>Code reviews</li>
+                        <li>Project planning</li>
+                    </ul>
                 </div>
                 <div class="timeline-item">
-                    <i class="fas fa-flask icon-sm"></i>
-                    <h3>Research & Development</h3>
-                    <p>Exploring emerging technologies</p>
+                    <i class="fas fa-flask fa-2x"></i>
+                    <h4>Research</h4>
+                    <ul class="city-list">
+                        <li>New technology evaluation</li>
+                        <li>Prototype development</li>
+                        <li>Continuous learning</li>
+                    </ul>
                 </div>
+            </div>
+        </div>
+
+        <!-- Work Environment Section -->
+        <div class="rubric-section">
+            <h2>🏢 Work Environment</h2>
+            <p>Typical work settings include tech offices, remote setups, and research labs</p>
+            
+            <h3>Top 3 Tech Hubs</h3>
+            <ul class="city-list">
+                <li>1. San Francisco, CA</li>
+                <li>2. Seattle, WA</li>
+                <li>3. Austin, TX</li>
+            </ul>
+        </div>
+
+        <!-- Job Requirements Section -->
+        <div class="rubric-section">
+            <h2>🎓 Education Requirements</h2>
+            <table class="requirements-table">
+                <tr>
+                    <th>Requirement</th>
+                    <th>Details</th>
+                    <th>Duration</th>
+                </tr>
+                <tr>
+                    <td>Degree</td>
+                    <td>Bachelor's in Computer Science</td>
+                    <td>4 years</td>
+                </tr>
+                <tr>
+                    <td>Certifications</td>
+                    <td>AWS, Cisco, Microsoft</td>
+                    <td>3-6 months</td>
+                </tr>
+                <tr>
+                    <td>Specialization</td>
+                    <td>AI, Cybersecurity, Data Science</td>
+                    <td>1-2 years</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Benefits Section -->
+        <div class="rubric-section">
+            <h2>🌟 Career Benefits</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-brain fa-2x"></i>
+                    <h3>Continuous Learning</h3>
+                    <p>Always work with cutting-edge technologies</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-globe fa-2x"></i>
+                    <h3>Global Impact</h3>
+                    <p>Create solutions used worldwide</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-balance-scale fa-2x"></i>
+                    <h3>Work Flexibility</h3>
+                    <p>Remote work options available</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Salary Section -->
+        <div class="rubric-section">
+            <h2>💰 Salary Information</h2>
+            <div style="font-size: 1.5rem; color: var(--secondary);">
+                Average Annual Salary: $85,000 - $130,000
             </div>
         </div>
     </div>
 
-    <!-- Add other sections following same pattern -->
-
     <footer>
         <div class="content-wrapper">
-            <p>© 2024 CS Career Explorer | OTHS KAP Biology Project</p>
+            <p>© 2024 CS Career Guide | OTHS KAP Biology Project</p>
         </div>
     </footer>
 </body>
