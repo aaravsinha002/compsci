@@ -88,25 +88,33 @@
             transform: translateY(-5px);
         }
 
-        .day-in-life {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .timeline-item {
+        .day-in-life-section {
+            margin: 3rem auto;
             padding: 2rem;
-            border: 2px solid var(--primary);
+            background: #f8f9fa;
             border-radius: 15px;
-            background: rgba(41,98,255,0.05);
-            transition: all 0.3s ease;
-            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 800px;
         }
 
-        .timeline-item:hover {
-            background: rgba(41,98,255,0.1);
-            transform: scale(1.02);
+        .day-in-life-slider-container {
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .day-in-life-slider {
+            flex-grow: 1;
+            margin: 0 1rem;
+        }
+
+        .day-in-life-description {
+            text-align: left;
+            margin-top: 1rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
         }
 
         .requirements-table {
@@ -367,44 +375,37 @@
 
             <h3>The Purpose of Computer Science</h3>
             <p style="max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
-                Computer Science professionals are the architects of our digital world. They design, develop, and maintain the software systems that power everything from smartphones to space exploration. In today's technology-driven society, computer scientists solve complex problems, create innovative solutions, and push the boundaries of what's possible with computing technology.
+                Computer Science professionals are the architects of our digital world. They design, develop, and maintain the software systems that power everything from smartphones to space exploration. In today's technology-driven society, computer scientists solve complex problems, create innovative solutions, automate tasks, advance knowledge, and connect people and information.
             </p>
+        </div>
 
-            <div class="day-in-life">
-                <div class="timeline-item" onclick="showModal('Software developers spend about 60% of their time writing and debugging code, 20% in meetings, and 20% on documentation and planning.')">
-                    <i class="fas fa-laptop-code fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
-                    <h4>Core Development Work</h4>
-                    <ul class="city-list">
-                        <li>Writing and testing code for new applications</li>
-                        <li>Debugging and optimizing existing systems</li>
-                        <li>Implementing algorithms</li>
-                        <li>Collaborating with designers</li>
-                        <li>Documenting code</li>
-                    </ul>
-                </div>
-                <div class="timeline-item" onclick="showModal('Agile methodology has become the standard for software development teams, with daily stand-ups and sprint planning.')">
-                    <i class="fas fa-users fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
-                    <h4>Team Collaboration</h4>
-                    <ul class="city-list">
-                        <li>Daily stand-up meetings</li>
-                        <li>Code reviews</li>
-                        <li>Project planning sessions</li>
-                        <li>Client meetings</li>
-                        <li>Mentoring junior developers</li>
-                    </ul>
-                </div>
-                <div class="timeline-item" onclick="showModal('The field of computer science changes rapidly, with new frameworks and technologies emerging constantly.')">
-                    <i class="fas fa-flask fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
-                    <h4>Research & Innovation</h4>
-                    <ul class="city-list">
-                        <li>Exploring new frameworks</li>
-                        <li>Prototyping innovative solutions</li>
-                        <li>Attending tech conferences</li>
-                        <li>Reading research papers</li>
-                        <li>Experimenting with emerging tech</li>
-                    </ul>
-                </div>
+        <div class="rubric-section day-in-life-section">
+            <h2><i class="fas fa-calendar-day icon"></i><br>A Day in the Life</h2>
+            <div class="day-in-life-slider-container">
+                <span>Morning</span>
+                <input type="range" min="0" max="2" value="0" class="day-in-life-slider" id="day-slider">
+                <span>Evening</span>
             </div>
+            <div class="day-in-life-description" id="day-description">
+                <p><strong>Morning (9:00 AM):</strong> Checking emails and attending a team stand-up meeting to discuss the day's tasks and progress.</p>
+                <ul>
+                    <li>Reviewing task list</li>
+                    <li>Addressing urgent messages</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="rubric-section">
+            <h2><i class="fas fa-tasks icon"></i><br>Daily Duties</h2>
+            <ul class="city-list" style="text-align: center;">
+                <li>Writing and testing code</li>
+                <li>Debugging and troubleshooting issues</li>
+                <li>Designing algorithms and data structures</li>
+                <li>Collaborating with team members</li>
+                <li>Attending meetings and planning sessions</li>
+                <li>Researching new technologies</li>
+                <li>Writing technical documentation</li>
+            </ul>
         </div>
 
         <div class="quiz-container">
@@ -448,188 +449,3 @@
         <div class="rubric-section">
             <h2><i class="fas fa-graduation-cap icon"></i><br>Education & Requirements</h2>
             <table class="requirements-table">
-                <tr onclick="showModal('Many successful developers are self-taught, but degrees remain important for many positions.')">
-                    <td><strong>Degree Programs</strong></td>
-                    <td>Bachelor's in Computer Science, Computer Engineering</td>
-                    <td>4 years</td>
-                </tr>
-                <tr onclick="showModal('Certifications can help specialize your skills and increase earning potential.')">
-                    <td><strong>Certifications</strong></td>
-                    <td>AWS, Cisco, Microsoft, Google</td>
-                    <td>3-12 months</td>
-                </tr>
-                <tr onclick="showModal('Specializing can make you more valuable but may limit job flexibility.')">
-                    <td><strong>Specializations</strong></td>
-                    <td>
-                        <div class="specializations">
-                            <span class="specialization-tag" onclick="event.stopPropagation(); showModal('AI specialists develop machine learning models and neural networks.')">AI</span>
-                            <span class="specialization-tag" onclick="event.stopPropagation(); showModal('Cybersecurity experts protect systems from hackers and malware.')">Cybersecurity</span>
-                            <span class="specialization-tag" onclick="event.stopPropagation(); showModal('Data scientists analyze large datasets to find patterns.')">Data Science</span>
-                            <span class="specialization-tag" onclick="event.stopPropagation(); showModal('Cloud engineers work with distributed systems and services.')">Cloud</span>                        </div>
-                    </td>
-                    <td>1-3 years</td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="rubric-section">
-            <h2><i class="fas fa-calculator icon"></i><br>Salary Calculator</h2>
-            <div>
-                <label for="experience">Years of Experience:</label>
-                <input type="range" id="experience" class="salary-slider" min="0" max="20" value="0">
-                <span id="exp-value">0</span> years
-            </div>
-            <div>
-                <label for="specialization">Specialization:</label>
-                <select id="specialization" style="padding: 0.5rem; border-radius: 5px; margin: 1rem;">
-                    <option value="1">General Software</option>
-                    <option value="1.2">AI/Machine Learning</option>
-                    <option value="1.15">Cybersecurity</option>
-                    <option value="1.1">Data Science</option>
-                    <option value="1.25">Quantum Computing</option>
-                </select>
-            </div>
-            <div class="salary-result" id="salary-result">Estimated Salary: $85,000</div>
-        </div>
-
-        <div class="rubric-section">
-            <h2><i class="fas fa-star icon"></i><br>Career Benefits</h2>
-            <p class="section-intro">Computer Science offers unparalleled professional advantages that extend far beyond competitive salaries. Here's why it's one of the most rewarding career paths:</p>
-
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <i class="fas fa-user-clock fa-3x benefit-icon"></i>
-                    <h3>Work-Life Flexibility</h3>
-                    <div class="benefit-details">
-                        <ul>
-                            <li><strong>Remote Work Options:</strong> 72% of tech companies offer full or partial remote work</li>
-                            <li><strong>Flexible Hours:</strong> Core hours typically between 10am-3pm with flexible start/end times</li>
-                            <li><strong>Unlimited PTO:</strong> Offered by 42% of Silicon Valley companies</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="benefit-card">
-                    <i class="fas fa-shield-alt fa-3x benefit-icon"></i>
-                    <h3>Job Security & Demand</h3>
-                    <div class="benefit-details">
-                        <ul>
-                            <li><strong>Growing Field:</strong> 22% projected growth (2020-2030) - much faster than average</li>
-                            <li><strong>Universal Need:</strong> Every industry needs CS professionals</li>
-                            <li><strong>Future-Proof:</strong> Essential for emerging technologies</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="benefit-card">
-                    <i class="fas fa-rocket fa-3x benefit-icon"></i>
-                    <h3>Growth Potential</h3>
-                    <div class="benefit-details">
-                        <ul>
-                            <li><strong>Career Progression:</strong> Clear path from Junior Dev → Senior → Tech Lead → CTO</li>
-                            <li><strong>Continuous Learning:</strong> $5,000+ average annual training budget</li>
-                            <li><strong>Entrepreneurial Opportunities:</strong> 60% of startups are tech-based</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="secondary-benefits">
-                <h4>More Advantages:</h4>
-                <div class="benefit-chips">
-                    <div class="chip">⚡ Cutting-edge Technology Access</div>
-                    <div class="chip">🤝 Collaborative Work Culture</div>
-                    <div class="chip">📈 Stock Options & Bonuses</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="info-modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <div id="modal-text"></div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="content-wrapper">
-            <h3>Ready to Start Your CS Journey?</h3>
-            <p>Explore computer science programs at your school or online platforms like Coursera and edX</p>
-            <p>© 2024 CS Career Guide | Presented by Aarav Sinha</p>
-        </div>
-    </footer>
-
-    <script>
-        // Create floating code animation
-        function createCodeAnimation() {
-            const container = document.getElementById('code-animation');
-            const codeSnippets = [
-                "function helloWorld() {\n  console.log('Hello CS!');\n}",
-                "class Developer {\n  constructor(name) {\n    this.name = name;\n  }\n}",
-                "const machineLearning = () => {\n  // Train AI model here\n};",
-                "#include <iostream>\nusing namespace std;\n\nint main() {\n  return 0;\n}"
-            ];
-
-            for (let i = 0; i < 15; i++) {
-                const codeElement = document.createElement('div');
-                codeElement.className = 'floating-code';
-                codeElement.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
-                codeElement.style.left = Math.random() * 100 + 'vw';
-                codeElement.style.animationDuration = (10 + Math.random() * 20) + 's';
-                codeElement.style.animationDelay = Math.random() * 5 + 's';
-                container.appendChild(codeElement);
-            }
-        }
-
-        // Modal functions
-        function showModal(text) {
-            document.getElementById('modal-text').innerHTML = text;
-            document.getElementById('info-modal').style.display = 'flex';
-        }
-
-        function closeModal() {
-            document.getElementById('info-modal').style.display = 'none';
-        }
-
-        // Quiz function
-        function checkAnswer(element, type) {
-            const feedback = document.getElementById('quiz-feedback');
-            if (type === 'correct') {
-                element.style.background = 'var(--secondary)';
-                element.style.color = 'white';
-                feedback.innerHTML = '✅ Correct! Python is the most popular language for AI development.';
-            } else {
-                element.style.background = '#ff4444';
-                element.style.color = 'white';
-                feedback.innerHTML = '❌ Try again! Python is the most popular for AI.';
-            }
-        }
-
-        // Salary calculator
-        function updateSalary() {
-            const years = parseInt(document.getElementById('experience').value);
-            const specialization = parseFloat(document.getElementById('specialization').value);
-            const baseSalary = 85000;
-            const experienceBonus = years * 3000;
-            const total = Math.floor((baseSalary + experienceBonus) * specialization);
-
-            document.getElementById('exp-value').textContent = years;
-            document.getElementById('salary-result').textContent = `Estimated Salary: $${total.toLocaleString()}`;
-        }
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            createCodeAnimation();
-
-            document.getElementById('experience').addEventListener('input', updateSalary);
-            document.getElementById('specialization').addEventListener('change', updateSalary);
-
-            // Close modal if clicked outside content
-            document.getElementById('info-modal').addEventListener('click', function(e) {
-                if (e.target === this) closeModal();
-            });
-        });
-    </script>
-</body>
-</html>
