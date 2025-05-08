@@ -87,7 +87,11 @@
         .rubric-section:hover {
             transform: translateY(-5px);
         }
-
+        .average-salary {
+    font-size: 1rem;
+    color: #777;
+    margin-top: 0.5rem;
+  }
         .day-in-life-section {
             margin: 3rem auto;
             padding: 2rem;
@@ -480,24 +484,25 @@
         </div>
 
         <div class="rubric-section">
-            <h2><i class="fas fa-calculator icon"></i><br>Salary Calculator</h2>
-            <div>
-                <label for="experience">Years of Experience:</label>
-                <input type="range" id="experience" class="salary-slider" min="0" max="20" value="0">
-                <span id="exp-value">0</span> years
-            </div>
-            <div>
-                <label for="specialization">Specialization:</label>
-                <select id="specialization" style="padding: 0.5rem; border-radius: 5px; margin: 1rem;">
-                    <option value="1">General Software</option>
-                    <option value="1.2">AI/Machine Learning</option>
-                    <option value="1.15">Cybersecurity</option>
-                    <option value="1.1">Data Science</option>
-                    <option value="1.25">Quantum Computing</option>
-                </select>
-            </div>
-            <div class="salary-result" id="salary-result">Estimated Salary: $85,000</div>
-        </div>
+    <h2><i class="fas fa-calculator icon"></i><br>Salary Calculator</h2>
+    <div>
+        <label for="experience">Years of Experience:</label>
+        <input type="range" id="experience" class="salary-slider" min="0" max="20" value="0">
+        <span id="exp-value">0</span> years
+    </div>
+    <div>
+        <label for="specialization">Specialization:</label>
+        <select id="specialization" style="padding: 0.5rem; border-radius: 5px; margin: 1rem;">
+            <option value="1">General Software</option>
+            <option value="1.2">AI/Machine Learning</option>
+            <option value="1.15">Cybersecurity</option>
+            <option value="1.1">Data Science</option>
+            <option value="1.25">Quantum Computing</option>
+        </select>
+    </div>
+    <div class="salary-result" id="salary-result">Estimated Salary: $85,000</div>
+    <div class="average-salary">Average Overall Salary: $95,000 (USD)</div>
+</div>
 
         <div class="rubric-section">
             <h2><i class="fas fa-star icon"></i><br>Career Benefits</h2>
