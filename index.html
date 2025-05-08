@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Computer Science Career Explorer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2962ff;  /* Tech blue */
-            --secondary: #00c853; /* Tech green */
+            --primary: #2962ff;
+            --secondary: #00c853;
             --dark: #1a237e;
             --light: #e3f2fd;
         }
@@ -18,247 +19,226 @@
             margin: 0;
             background: var(--light);
             color: var(--dark);
+            text-align: center;
+        }
+
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary), #0d47a1);
+            background: linear-gradient(rgba(41,98,255,0.9), rgba(13,71,161,0.9)),
+                        url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
             color: white;
-            padding: 2rem;
+            padding: 4rem 2rem;
             text-align: center;
             border-bottom: 5px solid var(--secondary);
         }
 
         .career-header {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            align-items: center;
-            margin: 2rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 2rem auto;
             padding: 2rem;
-            background: white;
+            background: rgba(255,255,255,0.9);
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 800px;
         }
 
-        .coding-animation {
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .career-image {
             width: 100%;
             height: 200px;
-            background: #263238;
-            border-radius: 10px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .career-image:hover {
+            transform: scale(1.05);
+        }
+
+        .icon-section {
+            font-size: 3rem;
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .icon-item {
+            transition: transform 0.3s ease;
+        }
+
+        .icon-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .rubric-section {
+            background: white;
+            margin: 2rem auto;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            max-width: 1000px;
+        }
+
+        .day-in-life {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            padding: 2rem;
+            border: 2px solid var(--primary);
+            border-radius: 15px;
             position: relative;
-            overflow: hidden;
-        }
-
-        .code-line {
-            position: absolute;
-            font-family: monospace;
-            color: #76ff03;
-            animation: codeScroll 20s linear infinite;
-        }
-
-        @keyframes codeScroll {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100%); }
         }
 
         .salary-display {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--secondary);
             padding: 1.5rem;
             border: 3px solid var(--secondary);
             border-radius: 10px;
-            text-align: center;
-            margin: 1rem;
+            margin: 2rem auto;
+            max-width: 500px;
         }
 
-        .ai-section {
-            background: white;
-            padding: 2rem;
-            margin: 2rem;
-            border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .neural-network {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0.1;
-            z-index: 0;
-        }
-
-        .career-pathways {
+        .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem;
+            gap: 2rem;
+            margin: 2rem 0;
         }
 
-        .pathway-card {
-            padding: 1.5rem;
+        .benefit-card {
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border-bottom: 5px solid transparent;
+        }
+
+        .benefit-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .city-list {
+            list-style: none;
+            padding: 0;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .requirements-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem auto;
             background: white;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-            border-left: 5px solid var(--primary);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .pathway-card:hover {
-            transform: translateY(-5px);
+        .requirements-table td, .requirements-table th {
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            text-align: center;
         }
 
-        /* Keep previous timeline, benefits-grid, and other styles */
-        /* Add more custom styles as needed */
-
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>💻 Launch Your Future in Computer Science</h1>
-        <p>Presented by: [Your Name Here]</p>
+        <div class="content-wrapper">
+            <h1>💻 Computer Science Career Path</h1>
+            <p class="subtitle">Shaping the Digital Future</p>
+        </div>
     </header>
 
-    <div class="career-header">
-        <div>
-            <h2>Computer Science Professional</h2>
-            <p>Shape the digital future through innovation and problem-solving</p>
-        </div>
+    <div class="image-grid content-wrapper">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+             alt="Coding workspace" 
+             class="career-image">
+        <img src="https://images.unsplash.com/photo-1534665482403-a909d0d97c67?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+             alt="Tech team collaboration" 
+             class="career-image">
+        <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?ixlib=rb-1.2.1&auto=format&fit=crop&w=1953&q=80" 
+             alt="Artificial Intelligence" 
+             class="career-image">
+    </div>
+
+    <div class="career-header content-wrapper">
         <div class="salary-display">
-            Average Salary: $85,000 - $130,000+
+            <i class="fas fa-coins"></i>
+            Average Salary: $85k - $130k+
         </div>
     </div>
 
-    <!-- Career Description Section -->
-    <div class="rubric-section">
-        <h2>🔍 Career Overview</h2>
-        <h3>Purpose of this Career</h3>
-        <p>Computer Science professionals develop innovative solutions to complex technological problems, creating software systems that power our modern world from mobile apps to artificial intelligence.</p>
-        
-        <h3>Daily Duties</h3>
-        <div class="day-in-life">
-            <div class="timeline-item">
-                <h4>🕗 Morning Stand-up</h4>
-                <p>Team meeting to review project progress and daily goals</p>
-            </div>
-            <div class="timeline-item">
-                <h4>👨💻 Core Development</h4>
-                <p>Coding new features, debugging systems, and collaborating with team members</p>
-            </div>
-            <div class="timeline-item">
-                <h4>📊 Evening Review</h4>
-                <p>Testing code, documenting progress, and planning next steps</p>
-            </div>
+    <div class="icon-section">
+        <div class="icon-item">
+            <i class="fas fa-laptop-code"></i>
+        </div>
+        <div class="icon-item">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="icon-item">
+            <i class="fas fa-shield-alt"></i>
         </div>
     </div>
 
-    <!-- Work Environment Section -->
+    <!-- Career Overview Section -->
     <div class="rubric-section">
-        <h2>🏢 Tech Work Environment</h2>
-        <p>Computer Scientists work in diverse settings including:</p>
-        <ul class="city-list">
-            <li>💡 Tech company offices (Google, Microsoft, startups)</li>
-            <li>🏡 Remote work environments</li>
-            <li>🔬 Research laboratories</li>
-        </ul>
-        
-        <h3>Top Tech Hubs in the US</h3>
-        <ul class="city-list">
-            <li>1. San Francisco, CA</li>
-            <li>2. Seattle, WA</li>
-            <li>3. Austin, TX</li>
-        </ul>
-    </div>
-
-    <!-- Job Requirements Section -->
-    <div class="rubric-section">
-        <h2>🎓 Education & Certification Path</h2>
-        <table class="requirements-table">
-            <tr>
-                <th>Requirement</th>
-                <th>Details</th>
-                <th>Time Frame</th>
-            </tr>
-            <tr>
-                <td>Degree</td>
-                <td>Bachelor's in Computer Science (BS)</td>
-                <td>4 years</td>
-            </tr>
-            <tr>
-                <td>Certifications</td>
-                <td>AWS Certified Developer, Cisco Certified Network Associate</td>
-                <td>3-6 months</td>
-            </tr>
-            <tr>
-                <td>Specializations</td>
-                <td>Machine Learning, Cybersecurity, Cloud Computing</td>
-                <td>1-2 years</td>
-            </tr>
-        </table>
-    </div>
-
-    <!-- Benefits Section -->
-    <div class="rubric-section">
-        <h2>🌟 Why Choose Computer Science?</h2>
-        <div class="benefits-grid">
-            <div class="benefit-card">
-                <h3>🚀 Continuous Innovation</h3>
-                <p>Work on cutting-edge technologies like AI and blockchain that shape the future</p>
-            </div>
-            <div class="benefit-card">
-                <h3>🌍 Global Impact</h3>
-                <p>Create solutions that affect millions of users worldwide</p>
-            </div>
-            <div class="benefit-card">
-                <h3>💡 Creative Freedom</h3>
-                <p>Transform abstract ideas into functional digital realities</p>
+        <h2>🚀 Career Overview</h2>
+        <div class="content-wrapper">
+            <p class="lead-text">Computer Science professionals create the digital infrastructure that powers our modern world, from mobile apps to artificial intelligence systems.</p>
+            
+            <div class="day-in-life">
+                <div class="timeline-item">
+                    <i class="fas fa-code icon-sm"></i>
+                    <h3>Software Development</h3>
+                    <p>Designing and coding innovative solutions</p>
+                </div>
+                <div class="timeline-item">
+                    <i class="fas fa-users-cog icon-sm"></i>
+                    <h3>Team Collaboration</h3>
+                    <p>Working with cross-functional teams</p>
+                </div>
+                <div class="timeline-item">
+                    <i class="fas fa-flask icon-sm"></i>
+                    <h3>Research & Development</h3>
+                    <p>Exploring emerging technologies</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="ai-section">
-        <canvas class="neural-network" id="networkCanvas"></canvas>
-        <h2>🤖 Emerging Fields in CS</h2>
-        <div class="career-pathways">
-            <div class="pathway-card">
-                <h3>Artificial Intelligence</h3>
-                <p>Develop intelligent systems and machine learning models</p>
-            </div>
-            <div class="pathway-card">
-                <h3>Cybersecurity</h3>
-                <p>Protect digital systems from malicious attacks</p>
-            </div>
-            <div class="pathway-card">
-                <h3>Quantum Computing</h3>
-                <p>Work on next-generation computing technology</p>
-            </div>
-        </div>
-    </div>
+    <!-- Add other sections following same pattern -->
 
     <footer>
-        <p>© 2024 CS Career Explorer | OTHS KAP Biology Project</p>
+        <div class="content-wrapper">
+            <p>© 2024 CS Career Explorer | OTHS KAP Biology Project</p>
+        </div>
     </footer>
-
-    <script>
-        // Animated neural network background
-        const canvas = document.getElementById('networkCanvas');
-        const ctx = canvas.getContext('2d');
-        
-        function resizeCanvas() {
-            canvas.width = canvas.offsetWidth;
-            canvas.height = canvas.offsetHeight;
-        }
-        
-        function drawNetwork() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            // Add neural network drawing logic here
-        }
-        
-        window.addEventListener('resize', () => {
-            resizeCanvas();
-            drawNetwork();
-        });
-        
-        resizeCanvas();
-        drawNetwork();
-    </script>
 </body>
 </html>
