@@ -36,6 +36,21 @@
             padding: 5rem 2rem;
             text-align: center;
             border-bottom: 5px solid var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-code {
+            position: absolute;
+            font-family: monospace;
+            color: rgba(255,255,255,0.1);
+            font-size: 1rem;
+            animation: floatCode 15s linear infinite;
+        }
+
+        @keyframes floatCode {
+            0% { transform: translateY(100vh) translateX(0); }
+            100% { transform: translateY(-100px) translateX(100px); }
         }
 
         .image-grid {
@@ -51,6 +66,13 @@
             border-radius: 15px;
             object-fit: cover;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+
+        .career-image:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
 
         .rubric-section {
@@ -59,6 +81,11 @@
             padding: 3rem;
             border-radius: 15px;
             box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .rubric-section:hover {
+            transform: translateY(-5px);
         }
 
         .day-in-life {
@@ -73,6 +100,13 @@
             border: 2px solid var(--primary);
             border-radius: 15px;
             background: rgba(41,98,255,0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .timeline-item:hover {
+            background: rgba(41,98,255,0.1);
+            transform: scale(1.02);
         }
 
         .requirements-table {
@@ -81,6 +115,14 @@
             margin: 2rem 0;
             background: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .requirements-table tr {
+            transition: background 0.3s ease;
+        }
+
+        .requirements-table tr:hover {
+            background: rgba(41,98,255,0.05);
         }
 
         .requirements-table td, .requirements-table th {
@@ -93,10 +135,9 @@
             color: white;
         }
 
-        /* Enhanced Benefits Section Styles */
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin: 3rem 0;
         }
@@ -107,93 +148,98 @@
             border-radius: 15px;
             transition: all 0.3s ease;
             border-bottom: 5px solid transparent;
+            cursor: pointer;
+            text-align: left;
         }
 
         .benefit-card:hover {
             border-color: var(--primary);
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
         }
 
         .benefit-icon {
-            color: var(--primary);
+            font-size: 2.5rem;
+            color: var(--secondary);
             margin-bottom: 1rem;
         }
 
-        .benefit-details {
-            text-align: left;
-            margin: 1rem 0;
-        }
-
         .benefit-details ul {
-            padding-left: 1.5rem;
+            list-style: none;
+            padding: 0;
         }
 
         .benefit-details li {
-            margin-bottom: 0.8rem;
-            line-height: 1.5;
-        }
-
-        .benefit-cta {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            margin-top: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .benefit-cta:hover {
-            background: var(--secondary);
+            margin-bottom: 0.5rem;
         }
 
         .secondary-benefits {
-            margin-top: 3rem;
-            padding: 2rem;
-            background: rgba(41,98,255,0.05);
-            border-radius: 15px;
+            margin-top: 2rem;
+            text-align: center;
         }
 
         .benefit-chips {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 1rem;
             margin-top: 1rem;
-            justify-content: center;
         }
 
         .chip {
-            background: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            border: 2px solid var(--primary);
-            transition: all 0.3s ease;
-        }
-
-        .chip:hover {
-            background: var(--primary);
+            background-color: var(--secondary);
             color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
         }
 
-        .salary-display {
-            background: rgba(0,200,83,0.1);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin: 2rem auto;
-            max-width: 600px;
-            border-left: 5px solid var(--secondary);
+        .city-list {
+            list-style: none;
+            padding: 0;
+            display: inline-block;
+            text-align: left;
+            font-size: 1.1rem;
         }
-        
-        .salary-display h3 {
-            color: var(--dark);
-            margin-bottom: 0.5rem;
+
+        .city-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            transition: transform 0.3s ease;
         }
-        
-        .salary-display .amount {
-            font-size: 2rem;
-            color: var(--secondary);
-            font-weight: bold;
+
+        .city-list li:hover {
+            transform: translateX(10px);
+        }
+
+        .city-list li:before {
+            content: "📍";
+            position: absolute;
+            left: 0;
+        }
+
+        .specializations {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .specialization-tag {
+            background: var(--secondary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .specialization-tag:hover {
+            background: var(--primary);
+            transform: scale(1.1);
         }
 
         footer {
@@ -207,10 +253,92 @@
             font-size: 2.5rem;
             margin-bottom: 1rem;
             color: var(--primary);
+            transition: transform 0.5s ease;
+        }
+
+        .icon:hover {
+            transform: rotate(360deg);
+        }
+
+        .quiz-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 3rem auto;
+            max-width: 800px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .quiz-question {
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-option {
+            padding: 0.8rem;
+            margin: 0.5rem;
+            background: #f0f0f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .salary-slider {
+            width: 100%;
+            margin: 2rem 0;
+        }
+
+        .salary-result {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .section-intro {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            color: #555;
         }
     </style>
 </head>
 <body>
+    <div id="code-animation"></div>
+
     <header>
         <div class="content-wrapper">
             <h1 style="font-size: 2.8rem;">Computer Science Career Path</h1>
@@ -220,114 +348,156 @@
     </header>
 
     <div class="content-wrapper">
-        <!-- Career Overview Section (Keep existing content) -->
         <div class="rubric-section">
             <h2><i class="fas fa-rocket icon"></i><br>Career Overview</h2>
             <div class="image-grid">
-                <img src="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a" 
-                     alt="Developer coding" 
-                     class="career-image">
-                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952" 
-                     alt="Team collaboration" 
-                     class="career-image">
-                <img src="https://images.unsplash.com/photo-1535378917042-10a22c95931a" 
-                     alt="AI technology" 
-                     class="career-image">
+                <img src="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a"
+                     alt="Developer coding"
+                     class="career-image"
+                     onclick="showModal('Coding involves writing instructions in programming languages that computers can execute to perform specific tasks.')">
+                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952"
+                     alt="Team collaboration"
+                     class="career-image"
+                     onclick="showModal('Modern software development is highly collaborative, with teams using tools like GitHub to work together.')">
+                <img src="https://images.unsplash.com/photo-1535378917042-10a22c95931a"
+                     alt="AI technology"
+                     class="career-image"
+                     onclick="showModal('Artificial Intelligence is revolutionizing industries from healthcare to transportation.')">
             </div>
 
             <h3>The Purpose of Computer Science</h3>
             <p style="max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
-                Computer Science professionals are the architects of our digital world. They design, develop, and maintain the software systems that power everything from smartphones to space exploration.
+                Computer Science professionals are the architects of our digital world. They design, develop, and maintain the software systems that power everything from smartphones to space exploration. In today's technology-driven society, computer scientists solve complex problems, create innovative solutions, and push the boundaries of what's possible with computing technology.
             </p>
 
             <div class="day-in-life">
-                <div class="timeline-item">
+                <div class="timeline-item" onclick="showModal('Software developers spend about 60% of their time writing and debugging code, 20% in meetings, and 20% on documentation and planning.')">
                     <i class="fas fa-laptop-code fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
                     <h4>Core Development Work</h4>
                     <ul class="city-list">
-                        <li>Writing and testing code</li>
-                        <li>Debugging and optimizing</li>
+                        <li>Writing and testing code for new applications</li>
+                        <li>Debugging and optimizing existing systems</li>
                         <li>Implementing algorithms</li>
+                        <li>Collaborating with designers</li>
+                        <li>Documenting code</li>
                     </ul>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item" onclick="showModal('Agile methodology has become the standard for software development teams, with daily stand-ups and sprint planning.')">
                     <i class="fas fa-users fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
                     <h4>Team Collaboration</h4>
                     <ul class="city-list">
                         <li>Daily stand-up meetings</li>
                         <li>Code reviews</li>
-                        <li>Project planning</li>
+                        <li>Project planning sessions</li>
+                        <li>Client meetings</li>
+                        <li>Mentoring junior developers</li>
                     </ul>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item" onclick="showModal('The field of computer science changes rapidly, with new frameworks and technologies emerging constantly.')">
                     <i class="fas fa-flask fa-3x" style="color: var(--primary); margin-bottom: 1rem;"></i>
                     <h4>Research & Innovation</h4>
                     <ul class="city-list">
                         <li>Exploring new frameworks</li>
-                        <li>Prototyping solutions</li>
-                        <li>Experimenting with tech</li>
+                        <li>Prototyping innovative solutions</li>
+                        <li>Attending tech conferences</li>
+                        <li>Reading research papers</li>
+                        <li>Experimenting with emerging tech</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- Work Environment Section (Keep existing content) -->
+        <div class="quiz-container">
+            <h2><i class="fas fa-question-circle icon"></i><br>CS Career Quiz</h2>
+            <div class="quiz-question">
+                <h3>Which of these programming languages is most commonly used in AI development?</h3>
+                <div class="quiz-option" onclick="checkAnswer(this, 'correct')">Python</div>
+                <div class="quiz-option" onclick="checkAnswer(this, 'wrong')">Java</div>
+                <div class="quiz-option" onclick="checkAnswer(this, 'wrong')">C++</div>
+                <div class="quiz-option" onclick="checkAnswer(this, 'wrong')">Ruby</div>
+            </div>
+            <div id="quiz-feedback" style="min-height: 2rem;"></div>
+        </div>
+
         <div class="rubric-section">
             <h2><i class="fas fa-building icon"></i><br>Work Environment</h2>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; text-align: left;">
                 <div>
                     <h3>Common Work Settings</h3>
                     <ul class="city-list">
-                        <li>Tech company offices</li>
-                        <li>Remote work environments</li>
-                        <li>University research labs</li>
+                        <li onclick="showModal('Tech companies like Google and Apple are known for their innovative office spaces with amenities.')">Tech company offices</li>
+                        <li onclick="showModal('Remote work has become increasingly common in tech since the pandemic.')">Remote work environments</li>
+                        <li onclick="showModal('University labs often work on cutting-edge research with government and corporate funding.')">University research labs</li>
+                        <li onclick="showModal('Government positions often offer excellent job security and benefits.')">Government facilities</li>
+                        <li onclick="showModal('Hybrid arrangements allow for both collaboration and focused work time.')">Hybrid arrangements</li>
                     </ul>
                 </div>
                 <div>
                     <h3>Top Tech Hubs in the US</h3>
                     <ul class="city-list">
-                        <li>San Francisco Bay Area, CA</li>
-                        <li>Seattle, WA</li>
-                        <li>New York City, NY</li>
+                        <li onclick="showModal('Silicon Valley has the highest concentration of tech companies in the world.')">San Francisco Bay Area, CA</li>
+                        <li onclick="showModal('Seattle benefits from having both Microsoft and Amazon headquartered there.')">Seattle, WA</li>
+                        <li onclick="showModal('NYC is particularly strong in financial technology and media tech.')">New York City, NY</li>
+                        <li onclick="showModal('Austin has become a popular alternative to coastal tech hubs.')">Austin, TX</li>
+                        <li onclick="showModal('Boston combines strong academia with thriving biotech and AI sectors.')">Boston, MA</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- Job Requirements Section (Keep existing content) -->
         <div class="rubric-section">
             <h2><i class="fas fa-graduation-cap icon"></i><br>Education & Requirements</h2>
             <table class="requirements-table">
-                <tr>
-                    <th>Requirement</th>
-                    <th>Details</th>
-                    <th>Duration</th>
-                </tr>
-                <tr>
+                <tr onclick="showModal('Many successful developers are self-taught, but degrees remain important for many positions.')">
                     <td><strong>Degree Programs</strong></td>
-                    <td>Bachelor's in Computer Science</td>
+                    <td>Bachelor's in Computer Science, Computer Engineering</td>
                     <td>4 years</td>
                 </tr>
-                <tr>
+                <tr onclick="showModal('Certifications can help specialize your skills and increase earning potential.')">
                     <td><strong>Certifications</strong></td>
-                    <td>AWS, Cisco, Microsoft</td>
+                    <td>AWS, Cisco, Microsoft, Google</td>
                     <td>3-12 months</td>
                 </tr>
-                <tr>
+                <tr onclick="showModal('Specializing can make you more valuable but may limit job flexibility.')">
                     <td><strong>Specializations</strong></td>
-                    <td>AI, Cybersecurity, Data Science</td>
+                    <td>
+                        <div class="specializations">
+                            <span class="specialization-tag" onclick="showModal('AI specialists develop machine learning models and neural networks.')">AI</span>
+                            <span class="specialization-tag" onclick="showModal('Cybersecurity experts protect systems from hackers and malware.')">Cybersecurity</span>
+                            <span class="specialization-tag" onclick="showModal('Data scientists analyze large datasets to find patterns.')">Data Science</span>
+                            <span class="specialization-tag" onclick="showModal('Cloud engineers work with distributed systems and services.')">Cloud</span>
+                        </div>
+                    </td>
                     <td>1-3 years</td>
                 </tr>
             </table>
         </div>
 
-        <!-- Enhanced Benefits Section -->
+        <div class="rubric-section">
+            <h2><i class="fas fa-calculator icon"></i><br>Salary Calculator</h2>
+            <div>
+                <label for="experience">Years of Experience:</label>
+                <input type="range" id="experience" class="salary-slider" min="0" max="20" value="0">
+                <span id="exp-value">0</span> years
+            </div>
+            <div>
+                <label for="specialization">Specialization:</label>
+                <select id="specialization" style="padding: 0.5rem; border-radius: 5px; margin: 1rem;">
+                    <option value="1">General Software</option>
+                    <option value="1.2">AI/Machine Learning</option>
+                    <option value="1.15">Cybersecurity</option>
+                    <option value="1.1">Data Science</option>
+                    <option value="1.25">Quantum Computing</option>
+                </select>
+            </div>
+            <div class="salary-result" id="salary-result">Estimated Salary: $85,000</div>
+        </div>
+
         <div class="rubric-section">
             <h2><i class="fas fa-star icon"></i><br>Career Benefits</h2>
             <p class="section-intro">Computer Science offers unparalleled professional advantages that extend far beyond competitive salaries. Here's why it's one of the most rewarding career paths:</p>
 
             <div class="benefits-grid">
-                <!-- Benefit 1 -->
                 <div class="benefit-card">
                     <i class="fas fa-user-clock fa-3x benefit-icon"></i>
                     <h3>Work-Life Flexibility</h3>
@@ -338,9 +508,8 @@
                             <li><strong>Unlimited PTO:</strong> Offered by 42% of Silicon Valley companies</li>
                         </ul>
                     </div>
-\                </div>
+                </div>
 
-                <!-- Benefit 2 -->
                 <div class="benefit-card">
                     <i class="fas fa-shield-alt fa-3x benefit-icon"></i>
                     <h3>Job Security & Demand</h3>
@@ -353,7 +522,6 @@
                     </div>
                 </div>
 
-                <!-- Benefit 3 -->
                 <div class="benefit-card">
                     <i class="fas fa-rocket fa-3x benefit-icon"></i>
                     <h3>Growth Potential</h3>
@@ -367,7 +535,6 @@
                 </div>
             </div>
 
-            <!-- Additional Benefits -->
             <div class="secondary-benefits">
                 <h4>More Advantages:</h4>
                 <div class="benefit-chips">
@@ -377,63 +544,93 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Salary Section (Keep existing content) -->
-        <div class="rubric-section">
-            <h2><i class="fas fa-money-bill-wave icon"></i><br>Salary Information</h2>
-            
-            <!-- Average Salary Display (Static) -->
-            <div class="salary-display">
-                <h3>Average Annual Salary for Computer Science Professionals</h3>
-                <div class="amount">$85,000 - $130,000</div>
-                <p>National average across all experience levels</p>
-            </div>
-            
-            <!-- Interactive Salary Calculator -->
-            <div style="background: white; padding: 2rem; border-radius: 15px; margin-top: 2rem;">
-                <h3>Personalized Salary Estimator</h3>
-                <div>
-                    <label for="experience">Years of Experience:</label>
-                    <input type="range" id="experience" class="salary-slider" min="0" max="20" value="0">
-                    <span id="exp-value">0</span> years
-                </div>
-                <div>
-                    <label for="specialization">Specialization:</label>
-                    <select id="specialization" style="padding: 0.5rem; border-radius: 5px; margin: 1rem;">
-                        <option value="1">General Software</option>
-                        <option value="1.2">AI/Machine Learning</option>
-                        <option value="1.15">Cybersecurity</option>
-                        <option value="1.1">Data Science</option>
-                    </select>
-                </div>
-                <div class="salary-result" id="salary-result">Your Estimated Salary: $85,000</div>
-            </div>
+    <div class="modal" id="info-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="modal-text"></div>
         </div>
     </div>
 
     <footer>
         <div class="content-wrapper">
             <h3>Ready to Start Your CS Journey?</h3>
-            <p>Explore computer science programs at your school or online platforms</p>
+            <p>Explore computer science programs at your school or online platforms like Coursera and edX</p>
             <p>© 2024 CS Career Guide | Presented by Aarav Sinha</p>
         </div>
     </footer>
 
     <script>
-        // Salary calculator functionality
+        // Create floating code animation
+        function createCodeAnimation() {
+            const container = document.getElementById('code-animation');
+            const codeSnippets = [
+                "function helloWorld() {\n  console.log('Hello CS!');\n}",
+                "class Developer {\n  constructor(name) {\n    this.name = name;\n  }\n}",
+                "const machineLearning = () => {\n  // Train AI model here\n};",
+                "#include <iostream>\nusing namespace std;\n\nint main() {\n  return 0;\n}"
+            ];
+
+            for (let i = 0; i < 15; i++) {
+                const codeElement = document.createElement('div');
+                codeElement.className = 'floating-code';
+                codeElement.textContent = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+                codeElement.style.left = Math.random() * 100 + 'vw';
+                codeElement.style.animationDuration = (10 + Math.random() * 20) + 's';
+                codeElement.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(codeElement);
+            }
+        }
+
+        // Modal functions
+        function showModal(text) {
+            document.getElementById('modal-text').innerHTML = text;
+            document.getElementById('info-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('info-modal').style.display = 'none';
+        }
+
+        // Quiz function
+        function checkAnswer(element, type) {
+            const feedback = document.getElementById('quiz-feedback');
+            if (type === 'correct') {
+                element.style.background = 'var(--secondary)';
+                element.style.color = 'white';
+                feedback.innerHTML = '✅ Correct! Python is the most popular language for AI development.';
+            } else {
+                element.style.background = '#ff4444';
+                element.style.color = 'white';
+                feedback.innerHTML = '❌ Try again! Python is the most popular for AI.';
+            }
+        }
+
+        // Salary calculator
         function updateSalary() {
             const years = parseInt(document.getElementById('experience').value);
             const specialization = parseFloat(document.getElementById('specialization').value);
             const baseSalary = 85000;
             const experienceBonus = years * 3000;
             const total = Math.floor((baseSalary + experienceBonus) * specialization);
-            
+
             document.getElementById('exp-value').textContent = years;
-            document.getElementById('salary-result').textContent = `Your Estimated Salary: $${total.toLocaleString()}`;
+            document.getElementById('salary-result').textContent = `Estimated Salary: $${total.toLocaleString()}`;
         }
 
-        document.getElementById('experience').addEventListener('input', updateSalary);
-        document.getElementById('specialization').addEventListener('change', updateSalary);
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createCodeAnimation();
+
+            document.getElementById('experience').addEventListener('input', updateSalary);
+            document.getElementById('specialization').addEventListener('change', updateSalary);
+
+            // Close modal if clicked outside content
+            document.getElementById('info-modal').addEventListener('click', function(e) {
+                if (e.target === this) closeModal();
+            });
+        });
     </script>
 </body>
 </html>
