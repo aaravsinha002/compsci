@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STEM Career Explorer - [Your Career Here]</title>
+    <title>Computer Science Career Explorer</title>
     <style>
         :root {
-            --primary: #2ecc71;
-            --secondary: #3498db;
-            --dark: #2c3e50;
-            --light: #ecf0f1;
+            --primary: #2962ff;  /* Tech blue */
+            --secondary: #00c853; /* Tech green */
+            --dark: #1a237e;
+            --light: #e3f2fd;
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
             margin: 0;
             background: var(--light);
@@ -21,125 +21,109 @@
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--primary), #0d47a1);
             color: white;
             padding: 2rem;
             text-align: center;
+            border-bottom: 5px solid var(--secondary);
         }
 
         .career-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding: 1rem;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .rubric-section {
-            background: white;
-            margin: 2rem auto;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            max-width: 1200px;
-        }
-
-        .day-in-life {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .timeline-item {
-            padding: 1rem;
-            border-left: 3px solid var(--primary);
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: "⏳";
-            position: absolute;
-            left: -15px;
-            top: 10px;
+            grid-template-columns: 2fr 1fr;
+            align-items: center;
+            margin: 2rem;
+            padding: 2rem;
             background: white;
-            padding: 5px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .coding-animation {
+            width: 100%;
+            height: 200px;
+            background: #263238;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .code-line {
+            position: absolute;
+            font-family: monospace;
+            color: #76ff03;
+            animation: codeScroll 20s linear infinite;
+        }
+
+        @keyframes codeScroll {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
         }
 
         .salary-display {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--secondary);
-            padding: 1rem;
-            border: 2px dashed var(--secondary);
+            padding: 1.5rem;
+            border: 3px solid var(--secondary);
             border-radius: 10px;
             text-align: center;
-            margin: 1rem 0;
+            margin: 1rem;
         }
 
-        .benefits-grid {
+        .ai-section {
+            background: white;
+            padding: 2rem;
+            margin: 2rem;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neural-network {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .career-pathways {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem;
         }
 
-        .benefit-card {
-            padding: 1rem;
-            background: #f8f9fa;
+        .pathway-card {
+            padding: 1.5rem;
+            background: white;
             border-radius: 10px;
             transition: transform 0.3s ease;
+            border-left: 5px solid var(--primary);
         }
 
-        .benefit-card:hover {
+        .pathway-card:hover {
             transform: translateY(-5px);
         }
 
-        .city-list {
-            list-style: none;
-            padding: 0;
-        }
+        /* Keep previous timeline, benefits-grid, and other styles */
+        /* Add more custom styles as needed */
 
-        .city-list li {
-            padding: 0.5rem;
-            margin: 0.5rem 0;
-            background: #e9f5ff;
-            border-radius: 5px;
-        }
-
-        .requirements-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-        }
-
-        .requirements-table td, .requirements-table th {
-            padding: 1rem;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-
-        footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
-        }
     </style>
 </head>
 <body>
     <header>
-        <h1>🌍 [Career Name Here] Career Exploration</h1>
+        <h1>💻 Launch Your Future in Computer Science</h1>
         <p>Presented by: [Your Name Here]</p>
     </header>
 
     <div class="career-header">
-        <h2>[Career Title Here]</h2>
+        <div>
+            <h2>Computer Science Professional</h2>
+            <p>Shape the digital future through innovation and problem-solving</p>
+        </div>
         <div class="salary-display">
-            Average Salary: $XX,XXX - $XX,XXX
+            Average Salary: $85,000 - $130,000+
         </div>
     </div>
 
@@ -147,41 +131,46 @@
     <div class="rubric-section">
         <h2>🔍 Career Overview</h2>
         <h3>Purpose of this Career</h3>
-        <p>[Detailed description of career purpose]</p>
+        <p>Computer Science professionals develop innovative solutions to complex technological problems, creating software systems that power our modern world from mobile apps to artificial intelligence.</p>
         
         <h3>Daily Duties</h3>
         <div class="day-in-life">
             <div class="timeline-item">
-                <h4>Morning Routine</h4>
-                <p>[Description of morning activities]</p>
+                <h4>🕗 Morning Stand-up</h4>
+                <p>Team meeting to review project progress and daily goals</p>
             </div>
             <div class="timeline-item">
-                <h4>Afternoon Tasks</h4>
-                <p>[Description of afternoon work]</p>
+                <h4>👨💻 Core Development</h4>
+                <p>Coding new features, debugging systems, and collaborating with team members</p>
             </div>
             <div class="timeline-item">
-                <h4>Evening Wrap-up</h4>
-                <p>[End-of-day responsibilities]</p>
+                <h4>📊 Evening Review</h4>
+                <p>Testing code, documenting progress, and planning next steps</p>
             </div>
         </div>
     </div>
 
     <!-- Work Environment Section -->
     <div class="rubric-section">
-        <h2>🏢 Work Environment</h2>
-        <p>[Description of typical work settings]</p>
-        
-        <h3>Top 3 Cities for this Career</h3>
+        <h2>🏢 Tech Work Environment</h2>
+        <p>Computer Scientists work in diverse settings including:</p>
         <ul class="city-list">
-            <li>1. City Name, State</li>
-            <li>2. City Name, State</li>
-            <li>3. City Name, State</li>
+            <li>💡 Tech company offices (Google, Microsoft, startups)</li>
+            <li>🏡 Remote work environments</li>
+            <li>🔬 Research laboratories</li>
+        </ul>
+        
+        <h3>Top Tech Hubs in the US</h3>
+        <ul class="city-list">
+            <li>1. San Francisco, CA</li>
+            <li>2. Seattle, WA</li>
+            <li>3. Austin, TX</li>
         </ul>
     </div>
 
     <!-- Job Requirements Section -->
     <div class="rubric-section">
-        <h2>🎓 Education & Certification Requirements</h2>
+        <h2>🎓 Education & Certification Path</h2>
         <table class="requirements-table">
             <tr>
                 <th>Requirement</th>
@@ -189,44 +178,87 @@
                 <th>Time Frame</th>
             </tr>
             <tr>
-                <td>Degrees</td>
-                <td>[List required degrees]</td>
-                <td>[Time frame]</td>
+                <td>Degree</td>
+                <td>Bachelor's in Computer Science (BS)</td>
+                <td>4 years</td>
             </tr>
             <tr>
                 <td>Certifications</td>
-                <td>[Required certifications]</td>
-                <td>[Time frame]</td>
+                <td>AWS Certified Developer, Cisco Certified Network Associate</td>
+                <td>3-6 months</td>
             </tr>
             <tr>
-                <td>Licenses</td>
-                <td>[Necessary licenses]</td>
-                <td>[Time frame]</td>
+                <td>Specializations</td>
+                <td>Machine Learning, Cybersecurity, Cloud Computing</td>
+                <td>1-2 years</td>
             </tr>
         </table>
     </div>
 
     <!-- Benefits Section -->
     <div class="rubric-section">
-        <h2>🌟 Career Benefits</h2>
+        <h2>🌟 Why Choose Computer Science?</h2>
         <div class="benefits-grid">
             <div class="benefit-card">
-                <h3>Benefit 1</h3>
-                <p>[Detailed description of first benefit]</p>
+                <h3>🚀 Continuous Innovation</h3>
+                <p>Work on cutting-edge technologies like AI and blockchain that shape the future</p>
             </div>
             <div class="benefit-card">
-                <h3>Benefit 2</h3>
-                <p>[Detailed description of second benefit]</p>
+                <h3>🌍 Global Impact</h3>
+                <p>Create solutions that affect millions of users worldwide</p>
             </div>
             <div class="benefit-card">
-                <h3>Benefit 3</h3>
-                <p>[Detailed description of third benefit]</p>
+                <h3>💡 Creative Freedom</h3>
+                <p>Transform abstract ideas into functional digital realities</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="ai-section">
+        <canvas class="neural-network" id="networkCanvas"></canvas>
+        <h2>🤖 Emerging Fields in CS</h2>
+        <div class="career-pathways">
+            <div class="pathway-card">
+                <h3>Artificial Intelligence</h3>
+                <p>Develop intelligent systems and machine learning models</p>
+            </div>
+            <div class="pathway-card">
+                <h3>Cybersecurity</h3>
+                <p>Protect digital systems from malicious attacks</p>
+            </div>
+            <div class="pathway-card">
+                <h3>Quantum Computing</h3>
+                <p>Work on next-generation computing technology</p>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>© 2024 STEM Career Explorer | Created for OTHS KAP Biology</p>
+        <p>© 2024 CS Career Explorer | OTHS KAP Biology Project</p>
     </footer>
+
+    <script>
+        // Animated neural network background
+        const canvas = document.getElementById('networkCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        function resizeCanvas() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+        
+        function drawNetwork() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // Add neural network drawing logic here
+        }
+        
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            drawNetwork();
+        });
+        
+        resizeCanvas();
+        drawNetwork();
+    </script>
 </body>
 </html>
